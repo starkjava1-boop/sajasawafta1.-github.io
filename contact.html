@@ -1,0 +1,87 @@
+<html>
+<head>
+<style>
+  body {
+    color: #2d3748;
+    background-color: #deafc9;
+    font-family: Copperplate, Papyrus, fantasy;
+    margin: 40px;
+  }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #8B0000; 
+    padding: 8px;
+    text-align: left;
+}
+</style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+</head>
+<body>
+
+    <form id="contactForm" action="/submit-form" method="POST">
+        <!-- Full Name -->
+        <div>
+            <label for="full-name">Full Name:</label><br>
+            <input type="text" id="full-name" name="full_name" required>
+        </div>
+        <br>
+
+        <!-- Email Address -->
+        <div>
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <br>
+
+        <!-- Country -->
+        <div>
+            <label for="country">Country:</label><br>
+            <select id="country" name="country" required>
+                <option value="" disabled selected>-- Select your country --</option>
+                <option value="usa">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="ca">Canada</option>
+                <option value="au">Australia</option>
+                <option value="jo">Jordan</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <br>
+
+        <!-- Comments / Message -->
+        <div>
+            <label for="comments">Comments:</label><br>
+            <textarea id="comments" name="comments" rows="4" cols="30" required></textarea>
+        </div>
+        <br>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+
+ <script>
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            const name = document.getElementById("full-name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const country = document.getElementById("country").value;
+            const comments = document.getElementById("comments").value.trim();
+
+            if (name === "" || email === "" || country === "" || comments === "") {
+                alert("Please fill in all fields.");
+                event.preventDefault(); // stop the form from submitting
+            }
+else {
+            alert("Form submitted successfully!");
+        }
+        });
+    </script>
+</body>
+</html>
